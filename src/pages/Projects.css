@@ -1,0 +1,230 @@
+/* src/pages/Projects.css - CORREGIDO (Sin cortes + Ancho Controlado) */
+
+.projects-container {
+  /* Espacio vertical generoso */
+  padding-top: 5rem;
+  padding-bottom: 6rem;
+  
+  /* CAMBIO: Volvemos a un ancho contenido, no pantalla completa */
+  max-width: 1000px; 
+  width: 90%; /* Dejamos un 10% de margen libre siempre */
+  
+  /* Padding lateral extra para que las sombras no se corten en pantallas pequeñas */
+  padding-left: 20px;
+  padding-right: 20px;
+  
+  margin: 0 auto;
+  animation: fadeIn 0.8s ease-out;
+  
+  /* ASEGURAR QUE SE VEA TODO: */
+  overflow: visible !important; 
+}
+
+.projects-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.projects-header h2 {
+  font-size: 2.8rem;
+  background: linear-gradient(to right, #ffffff, #a3a3a3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.8rem;
+}
+
+.projects-header p {
+  color: #737373;
+  font-size: 1.1rem;
+}
+
+/* --- TIMELINE --- */
+.timeline-wrapper {
+  position: relative;
+  /* Espacio suficiente a la izquierda */
+  padding-left: 50px; 
+  border-left: 2px solid #333; 
+  margin-left: 10px;
+}
+
+.timeline-card {
+  position: relative;
+  margin-bottom: 3.5rem;
+  
+  background: #0a0a0a;
+  border: 1px solid #262626;
+  border-radius: 12px;
+  padding: 2rem;
+  
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transición suave */
+  width: 100%;
+}
+
+/* Efecto Hover: Ahora NO se cortará */
+.timeline-card:hover {
+  transform: translateX(10px) translateY(-5px); /* Movimiento diagonal sutil */
+  background: #121212;
+  border-color: #ffffff;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.6); /* Sombra amplia */
+  z-index: 20; /* Asegura que la tarjeta activa esté encima de todo */
+}
+
+/* Puntos de la línea */
+.timeline-dot {
+  position: absolute;
+  left: -58px; 
+  top: 30px;
+  width: 14px;
+  height: 14px;
+  background: #000000;
+  border: 2px solid #525252;
+  border-radius: 50%;
+  z-index: 10;
+  transition: all 0.3s;
+}
+
+.timeline-card:hover .timeline-dot {
+  background: #ffffff;
+  border-color: #ffffff;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+  transform: scale(1.2);
+}
+
+.timeline-end-dot {
+  position: absolute;
+  bottom: -5px;
+  left: -58px;
+  width: 14px;
+  height: 14px;
+  background: #333;
+  border-radius: 50%;
+}
+
+/* Contenido Interno */
+.card-icon-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+  border-bottom: 1px solid #1a1a1a;
+  padding-bottom: 1rem;
+}
+
+.p-icon {
+  font-size: 1.6rem;
+  color: #fff;
+  background: rgba(255,255,255,0.05);
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  border: 1px solid #262626;
+}
+
+.p-type {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #737373;
+  font-weight: 700;
+}
+
+.timeline-card h3 {
+  margin: 1rem 0 0.8rem 0;
+  font-size: 1.6rem;
+  color: #fff;
+}
+
+.p-stack {
+  display: inline-block;
+  font-size: 0.85rem;
+  color: #d4d4d4;
+  font-family: monospace;
+  margin-bottom: 1.5rem;
+  background: #171717;
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: 1px solid #262626;
+}
+
+.p-desc {
+  color: #a3a3a3;
+  line-height: 1.7;
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Card Destacada */
+.highlight-card {
+  border: 1px solid #525252;
+  background: linear-gradient(145deg, #0f0f0f, #050505);
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.03);
+}
+
+.highlight-card h3 {
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255,255,255,0.2);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .projects-container {
+    width: 100%;
+    padding: 3rem 1rem;
+  }
+  .timeline-wrapper {
+    padding-left: 20px;
+  }
+  .timeline-dot, .timeline-end-dot {
+    left: -28px;
+  }
+}
+
+/* ... (Todo tu CSS anterior) ... */
+
+/* --- BOTONES DE ENLACES --- */
+.card-links {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #262626; /* Línea sutil separadora */
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap; /* Para que bajen si no caben */
+}
+
+.project-link-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: #e5e5e5;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid #333;
+  transition: all 0.2s ease;
+}
+
+.project-link-btn:hover {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+}
+
+/* Ajuste móvil para que los botones sean grandes y fáciles de tocar */
+@media (max-width: 768px) {
+  .card-links {
+    flex-direction: column;
+  }
+  .project-link-btn {
+    justify-content: center;
+    padding: 12px;
+  }
+}

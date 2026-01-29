@@ -1,0 +1,362 @@
+/* src/App.css - VERSIÓN FINAL INTEGRADA */
+
+/* --- 1. Variables Globales (Paleta Monocromática) --- */
+:root {
+  /* Fondos */
+  --bg-dark: #000000;      /* Negro Puro */
+  --bg-card: #0a0a0a;      /* Negro Mate para tarjetas */
+  --bg-hover: #171717;     /* Gris muy oscuro para hovers */
+
+  /* Textos */
+  --text-main: #ffffff;    /* Blanco Puro */
+  --text-muted: #a3a3a3;   /* Gris Plata */
+  
+  /* Acentos */
+  --primary: #ffffff;      /* Blanco para botones/acciones */
+  --accent: #525252;       /* Gris medio para bordes */
+  --border: #262626;       /* Gris oscuro para líneas sutiles */
+  
+  /* Gradientes */
+  --gradient-text: linear-gradient(to bottom, #ffffff 30%, #a3a3a3 100%);
+}
+
+/* --- 2. Configuración Base --- */
+body {
+  margin: 0;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: 'Outfit', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* --- 3. Hero Section (Portada) --- */
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 85vh;
+  animation: fadeIn 1s ease-out;
+  
+  /* IMPORTANTE: Fondo transparente para ver el visualizador detrás */
+  background: transparent;
+  
+  /* Z-Index para estar encima del canvas */
+  position: relative;
+  z-index: 2;
+}
+
+/* Título Metalizado */
+.glitch-text {
+  font-size: 4.5rem;
+  line-height: 1.1;
+  margin: 0 0 1.5rem 0;
+  font-weight: 900;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 2rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.description {
+  max-width: 700px;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #737373;
+  margin-bottom: 3rem;
+}
+
+/* --- 4. Botón de Audio Redondo (Blanco con Icono Negro) --- */
+/* Esta es la parte que te faltaba completa */
+.audio-btn-round {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  
+  /* Fondo claro por defecto */
+  background: #e5e5e5; 
+  border: 2px solid #ffffff;
+  
+  /* Icono Negro para que se vea */
+  color: #000000; 
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0 auto 2rem auto; /* Centrado automático */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.audio-btn-round:hover {
+  background: #ffffff;
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+}
+
+/* Estado activo (pulsando) */
+.audio-btn-round.active {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+  animation: pulse 1.5s infinite;
+}
+
+/* --- 5. Botones Principales (Centrado Corregido) --- */
+.cta-buttons {
+  display: flex;
+  justify-content: center; /* Centrado horizontal */
+  align-items: center;
+  gap: 2rem;               /* Espacio entre botones */
+  flex-wrap: wrap;
+  width: 100%;             /* Ocupar todo el ancho para poder centrar */
+  margin-top: 2rem;
+  position: relative;
+  z-index: 10;
+}
+
+.btn {
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  min-width: 160px;       /* Tamaño uniforme */
+  text-align: center;
+}
+
+.btn-primary {
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #ffffff;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.btn-primary:hover {
+  background: #000000;
+  color: #ffffff;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.25);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid #404040;
+  color: #a3a3a3;
+}
+
+.btn-outline:hover {
+  border-color: #ffffff;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* --- 6. Iconos Sociales --- */
+.social-links {
+  margin-top: 4rem;
+  display: flex;
+  gap: 2rem;
+}
+
+.social-icon {
+  color: #525252;
+  font-size: 1.8rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-icon:hover {
+  color: #ffffff;
+  transform: translateY(-5px);
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+/* --- 7. Badge --- */
+.badge-new {
+  background: rgba(255, 255, 255, 0.05);
+  color: #e5e5e5;
+  padding: 6px 18px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  margin-bottom: 2rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  backdrop-filter: blur(5px);
+}
+
+/* --- 8. Tarjetas (Proyectos/Skills) --- */
+.page-container {
+  padding-top: 2rem;
+  animation: slideUp 0.6s ease-out;
+}
+
+.page-container h2 {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  border-left: 4px solid #ffffff;
+  padding-left: 1.5rem;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background-color: var(--bg-card);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  border-color: #525252;
+  box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.8);
+  background-color: var(--bg-hover);
+}
+
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 1.5rem;
+}
+
+.icon-box {
+  background: rgba(255,255,255,0.03);
+  padding: 12px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,0.05);
+  color: #fff;
+}
+
+.project-card h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #fff;
+}
+
+.client-tag {
+  font-size: 0.75rem;
+  color: #737373;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block;
+  margin-top: 5px;
+}
+
+.tech-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #fff;
+  background: #262626;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.project-card p {
+  color: #a3a3a3;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.card-footer {
+  margin-top: 2rem;
+  display: flex;
+  gap: 12px;
+  border-top: 1px solid var(--border);
+  padding-top: 1.5rem;
+}
+
+.btn-small {
+  background: #ffffff;
+  border: 1px solid #ffffff;
+  color: #000;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+
+.btn-small:hover {
+  background: #000;
+  color: #fff;
+}
+
+.btn-small.outline {
+  background: transparent;
+  border: 1px solid #404040;
+  color: #a3a3a3;
+}
+
+.btn-small.outline:hover {
+  border-color: #fff;
+  color: #fff;
+  background: rgba(255,255,255,0.05);
+}
+
+/* --- 9. Animaciones y Responsive --- */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+}
+
+@media (max-width: 768px) {
+  .glitch-text { font-size: 2.8rem; }
+  .navbar { flex-direction: column; gap: 1rem; }
+  .main-content { padding: 1.5rem; }
+}

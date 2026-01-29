@@ -1,0 +1,57 @@
+/* Ocultar el cursor por defecto del sistema en PC */
+@media (pointer: fine) {
+*, *::before, *::after, a, button, input {
+    cursor: none !important;
+  }
+}
+
+/* EL PUNTO BLANCO (La punta de la flecha) */
+.cursor-dot {
+  width: 1px;
+  height: 1px;
+  background-color: rgb(0, 0, 0);
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 10000; /* Siempre encima de todo */
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference; /* Para que se vea en fondos claros u oscuros */
+}
+
+/* EL CONTENEDOR DE LA FLECHA SVG */
+.cursor-arrow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  pointer-events: none;
+  z-index: 9999;
+  
+  /* IMPORTANTE: Ajuste de posición.
+     - translate(-3px, -3px) alinea la punta del SVG (3.5, 3.5) con el punto central.
+     - rotate(-10deg) le da esa inclinación natural de mouse.
+  */
+  transform: translate(-3px, -3px) rotate(0deg);
+  
+  /* Transición suave para que "siga" al mouse con un poco de delay (efecto fluido) */
+  transition: transform 0.1s ease-out, opacity 0.2s;
+}
+
+/* LA FLECHA SVG DENTRO */
+.cursor-arrow svg path {
+  transition: stroke-width 0.3s, fill 0.3s;
+}
+
+/* ESTADO HOVER (Cuando pasas por un botón o enlace) */
+.cursor-arrow.hovered {
+  /* La flecha se aleja un poco y se inclina, indicando acción */
+  transform: translate(-3px, -3px) scale(0.8) rotate(-45deg);
+}
+
+.cursor-arrow.hovered svg path {
+  stroke-width: 2px; /* Se hace más gruesa */
+  fill: rgba(255, 255, 255, 0.1); /* Se rellena sutilmente */
+}

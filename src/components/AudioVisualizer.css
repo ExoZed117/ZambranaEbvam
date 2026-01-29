@@ -1,0 +1,11 @@
+.audio-canvas {
+  position: fixed; /* Se queda fijo aunque hagas scroll */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Al fondo del todo */
+  pointer-events: none; /* Ignora los clics (para que puedas hacer clic en lo de abajo) */
+  opacity: 0.5; /* Sutil */
+  mix-blend-mode: screen; /* Fusión de luz */
+}

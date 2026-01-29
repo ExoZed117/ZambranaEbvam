@@ -1,0 +1,51 @@
+/* src/index.css - RESET GLOBAL LIMPIO */
+
+/* 1. Reset Básico */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Configuración de la Fuente y Fondo Base */
+:root {
+  font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* Esquema de color base */
+  color-scheme: dark; 
+  color: #ffffff;
+  background-color: #000000; /* Aseguramos fondo negro desde la raíz */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 3. Body */
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #000000;
+  overflow-x: hidden; /* Evita scroll horizontal indeseado */
+}
+
+/* 4. Scrollbar Personalizado (Toque Pro) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333; 
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}

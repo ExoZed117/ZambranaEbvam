@@ -1,0 +1,135 @@
+/* src/pages/About.css - MODO DARK LUXURY */
+
+.about-container {
+  padding-top: 1rem;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.about-header h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  /* Gradiente Metálico */
+  background: linear-gradient(to right, #ffffff, #a3a3a3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bio-text {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  color: #a3a3a3; /* Gris Plata */
+  line-height: 1.8;
+}
+
+/* Grid de Servicios (Lo que hago) */
+.section-title {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  color: #e5e5e5;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+/* Tarjeta de Servicio (Negra) */
+.service-card {
+  background: #0a0a0a; /* Negro Mate */
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid #262626; /* Borde gris oscuro */
+  transition: transform 0.3s;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  background: #121212;
+  border-color: #ffffff; /* Borde blanco al hover */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+}
+
+.service-icon {
+  font-size: 2rem;
+  color: #d4d4d4; /* Iconos en gris claro */
+  margin-bottom: 1rem;
+}
+
+.service-card h4 {
+  margin: 0 0 10px 0;
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+.service-card p {
+  color: #a3a3a3;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Sección Educación y Certificaciones */
+.timeline-section {
+  background: #0a0a0a; /* Fondo negro */
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid #262626;
+}
+
+.timeline-item {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  /* Línea vertical blanca */
+  border-left: 2px solid #ffffff; 
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -9px; /* Ajustar para centrar en la línea */
+  top: 0;
+  width: 16px;
+  height: 16px;
+  background: #000000;
+  border: 2px solid #ffffff; /* Punto blanco */
+  border-radius: 50%;
+}
+
+.timeline-date {
+  font-size: 0.85rem;
+  color: #d4d4d4; /* Fecha en gris claro */
+  font-weight: 600;
+  min-width: 100px;
+}
+
+.timeline-content h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #ffffff;
+}
+
+.timeline-content span {
+  font-size: 0.9rem;
+  color: #737373; /* Subtítulo gris oscuro */
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* Botón de CV */
+.cv-download {
+  text-align: center;
+  margin-top: 4rem;
+}

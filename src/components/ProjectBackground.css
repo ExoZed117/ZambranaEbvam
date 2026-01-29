@@ -1,0 +1,47 @@
+/* src/components/ProjectBackground.css */
+
+.background-effect-container {
+  /* CAMBIO CLAVE: 'fixed' hace que se salga del contenedor padre y cubra toda la pantalla */
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100vw; /* Ancho total de la ventana (Viewport Width) */
+  height: 100vh; /* Alto total de la ventana (Viewport Height) */
+  overflow: hidden; 
+  pointer-events: none; /* Para que no moleste a los clicks */
+  
+  /* Z-INDEX BAJO: Para que se quede detrás del texto */
+  z-index: 0; 
+}
+
+/* El resto del CSS de la animación sigue igual */
+.light-trail {
+  position: absolute;
+  top: -150px;
+  width: 1px;
+  height: 150px;
+  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.4));
+  border-radius: 50%;
+  opacity: 0;
+  animation: drop ease-in-out infinite;
+}
+
+.light-trail::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 3px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #fff, 0 0 20px #fff;
+}
+
+@keyframes drop {
+  0% { opacity: 0; top: -150px; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; top: 110%; }
+}
