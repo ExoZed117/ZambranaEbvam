@@ -1,65 +1,59 @@
-/* src/components/Footer.css - MODO DARK LUXURY */
-
-.footer {
-  /* Fondo Negro Mate */
-  background-color: #000000; 
-  /* Línea divisoria gris oscura */
-  border-top: 1px solid #262626; 
-  
-  padding: 3rem 1rem;
-  margin-top: 4rem;
-  text-align: center;
-  
-  /* Texto Gris Plata */
-  color: #737373; 
-  font-size: 0.9rem;
-  
-  /* Efecto sutil */
-  backdrop-filter: blur(10px);
+.site-footer {
+  border-top:1px solid var(--border);
+  background:#100e15;
+  padding:60px max(56px,calc((100% - var(--page-width))/2)) 24px
 }
-
-.footer p {
-  margin: 0.5rem 0;
-  line-height: 1.6;
+.footer-contact {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:32px;
+  padding-bottom:60px
 }
-
-/* Efecto para el emoji */
-.emoji {
-  display: inline-block;
-  margin: 0 5px;
-  animation: float 3s ease-in-out infinite;
-  filter: grayscale(100%); /* Hacemos el emoji un poco más serio (opcional) */
-  transition: filter 0.3s;
+.footer-contact h2 {
+  max-width:640px;
+  font-size:clamp(28px,3.4vw,46px);
+  line-height:1.15;
+  letter-spacing:-.03em
 }
-
-.footer:hover .emoji {
-  filter: grayscale(0%); /* Recobra color al pasar el mouse */
+.footer-contact .button {
+  flex-shrink:0
 }
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-3px); }
+.footer-bottom {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:24px;
+  padding-top:24px;
+  border-top:1px solid var(--border);
+  color:var(--muted);
+  font-size:11px
 }
-
-/* src/components/Footer.css */
-
-.footer-container {
-  text-align: center;
-  padding: 3rem 2rem;
-  margin-top: 5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Línea sutil */
-  color: #737373; /* Gris elegante */
-  font-size: 0.9rem;
-  background: transparent;
-  position: relative;
-  z-index: 10;
+.footer-bottom a {
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  min-height:44px
 }
-
-.footer-container p {
-  margin: 0.5rem 0;
+@media(max-width:900px) {
+  .site-footer {
+    padding-inline:32px
+  }
 }
-
-.highlight {
-  color: #e5e5e5;
-  font-weight: 600;
+@media(max-width:600px) {
+  .site-footer {
+    padding:40px 20px 24px
+  }
+  .footer-contact {
+    align-items:start;
+    flex-direction:column;
+    padding-bottom:36px
+  }
+  .footer-bottom {
+    flex-wrap:wrap;
+    gap:12px 28px
+  }
+  .footer-bottom>p:first-child {
+    flex-basis:100%
+  }
 }

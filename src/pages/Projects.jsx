@@ -1,18 +1,17 @@
 import React from 'react';
 import './Projects.css';
-import { 
-  FaMobileAlt, FaGlobe, FaDatabase, FaShieldAlt, 
-  FaCoffee, FaTruck, FaUserNurse, FaUsers, FaGithub, FaExternalLinkAlt 
+import {
+  FaMobileAlt, FaGlobe, FaDatabase, FaShieldAlt,
+  FaCoffee, FaTruck, FaUserNurse, FaUsers, FaGithub, FaExternalLinkAlt
 } from 'react-icons/fa';
 
 // 1. IMPORTAR EL HOOK DE IDIOMA
-import { useLanguage } from '../context/LanguageContext';
+import { useLanguage } from '../context/useLanguage';
 
-// 2. IMPORTAR EL FONDO
-import GlobalBackground from '../components/ProjectBackground'; 
+import ProjectArt from '../components/ProjectArt';
 
 const Projects = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const projectList = [
     {
@@ -44,7 +43,7 @@ const Projects = () => {
       stack: "Full Stack (Front + Back)",
       desc: t.projects.list.panic.desc,
       icon: <FaDatabase />,
-      links: [] 
+      links: []
     },
     {
       title: t.projects.list.nursing.title,
@@ -98,61 +97,16 @@ const Projects = () => {
     }
   ];
 
-  return (
-    <div className="projects-container page-container" style={{ position: 'relative', minHeight: '100vh' }}>
-      
-      {/* Fondo Global (Solo visible en esta página) */}
-      <GlobalBackground />
-
-      {/* Contenedor del contenido con z-index */}
-      <div style={{ position: 'relative', zIndex: 10 }}>
-        
-        <div className="projects-header">
-          <h2>{t.projects.title}</h2>
-          <p>{t.projects.subtitle}</p>
-        </div>
-
-        <div className="timeline-wrapper">
-          {projectList.map((proj, index) => (
-            <div 
-              key={index} 
-              className={`timeline-card ${proj.highlight ? 'highlight-card' : ''}`}
-            >
-              <div className="timeline-dot"></div>
-              
-              <div className="card-icon-header">
-                <div className="p-icon">{proj.icon}</div>
-                <span className="p-type">{proj.type}</span>
-              </div>
-              
-              <h3>{proj.title}</h3>
-              <span className="p-stack">{proj.stack}</span>
-              <p className="p-desc">{proj.desc}</p>
-
-              {proj.links && proj.links.length > 0 && (
-                <div className="card-links">
-                  {proj.links.map((link, i) => (
-                    <a 
-                      key={i} 
-                      href={link.url} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="project-link-btn"
-                    >
-                      {link.icon} {link.label}
-                    </a>
-                  ))}
-                </div>
-              )}
-
-            </div>
-          ))}
-          <div className="timeline-end-dot"></div>
-        </div>
-
+  const labels = { 'Panel Web': 'Web dashboard', 'App Policial': 'Police app', 'Repositorio': 'Repository', 'Visitar Web': 'Visit website' };
+  return <div className="projects-page page-container">
+    <header className="page-heading"><h1>{t.projects.title}</h1><p>{t.projects.subtitle}</p></header>
+    <div className="project-gallery">{projectList.map((project, index) => <article className={`project-entry ${index === 0 ? 'featured-project' : ''}`} key={project.title}>
+      <ProjectArt index={index} title={project.title} />
+      <div className="project-details"><p className="project-type">{project.type}</p><h2>{project.title}</h2><p>{project.desc}</p>
+        <p className="project-stack">{language === 'en' ? project.stack.replaceAll('Base de Datos', 'Database') : project.stack}</p>
+        <div className="project-links">{project.links.map(link => <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer">{link.icon}<span>{language === 'en' ? labels[link.label] || link.label : link.label}</span><FaExternalLinkAlt aria-hidden="true" /></a>)}</div>
       </div>
-    </div>
-  );
+    </article>)}</div>
+  </div>;
 };
-
 export default Projects;

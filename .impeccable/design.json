@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-08T05:38:11.797786+00:00",
+  "title": "Design System: ZambranaEbvam",
+  "extensions": {
+    "shadows": [],
+    "motion": [
+      {
+        "name": "interaction",
+        "value": "0.2s",
+        "purpose": "Estados de controles e iconos."
+      },
+      {
+        "name": "ambient",
+        "value": "18–30s ease-in-out alternate",
+        "purpose": "Solo transform/opacity. Pausa manual, visibilitychange e IntersectionObserver. Desactivado con prefers-reduced-motion."
+      },
+      {
+        "name": "monolith-breathe",
+        "value": "14s ease-in-out infinite alternate",
+        "purpose": "Mismo transform y pausa sincronizada para fondo y recorte frontal; desactivado con movimiento reducido."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "mobile",
+        "value": "600px"
+      },
+      {
+        "name": "navigation",
+        "value": "700px"
+      },
+      {
+        "name": "tablet",
+        "value": "900px"
+      },
+      {
+        "name": "compact-navigation",
+        "value": "1000px"
+      },
+      {
+        "name": "wide-display",
+        "value": "1900px"
+      }
+    ],
+    "layout": {
+      "surface": "100%",
+      "gutter": "clamp(24px, 4vw, 80px)",
+      "mobileGutter": "20px",
+      "readingMeasure": "65ch",
+      "projectGrid": "12 columnas asimétricas; una columna bajo 600px"
+    },
+    "cinematicPalette": {
+      "purpose": "Tonos ambientales y portadas de Cinematic heredados; Monolith.css define la dirección A final. Sus colores y radios nuevos son intencionales.",
+      "colors": [
+        "#000",
+        "#0008",
+        "#07060b",
+        "#08080c",
+        "#08080c05",
+        "#08080c33",
+        "#08080c5c",
+        "#08080c66",
+        "#08080c70",
+        "#08080c80",
+        "#08080cb3",
+        "#08080cd9",
+        "#08080ce6",
+        "#08080cf0",
+        "#08080cf5",
+        "#0b0912",
+        "#100c19b8",
+        "#10131e",
+        "#120e1dcc",
+        "#140a26",
+        "#171221b3",
+        "#171622",
+        "#18131f",
+        "#182d30",
+        "#201a35",
+        "#202735",
+        "#23212a",
+        "#23212a66",
+        "#281623",
+        "#292335",
+        "#2b203c",
+        "#2d2329",
+        "#352754",
+        "#505ca53d",
+        "#6f517d",
+        "#7040ba40",
+        "#75648670",
+        "#766284",
+        "#84708f",
+        "#8c759d40",
+        "#9458f5",
+        "#997bb8",
+        "#9c558d3b",
+        "#a25fe8",
+        "#a78bca",
+        "#a992c4",
+        "#aa80dd",
+        "#aa83c3",
+        "#aa92ca55",
+        "#ad82e80d",
+        "#b6b3bc",
+        "#b7337933",
+        "#b7a1d1",
+        "#b9cbe8",
+        "#bb96ff",
+        "#bca0e2",
+        "#c2a0f0",
+        "#c4e0da",
+        "#c5bdce",
+        "#c6a2ff",
+        "#c6a6f4",
+        "#c865ac",
+        "#c8b3f0",
+        "#c9c1d5",
+        "#cfb2ff",
+        "#d2ceda",
+        "#d3c9e1",
+        "#d4bcff",
+        "#d6b1ff",
+        "#d6d1e3",
+        "#dad5e2",
+        "#ded3f5",
+        "#e044a8",
+        "#e5dcee",
+        "#e8cebd",
+        "#eadbff",
+        "#edaccd",
+        "#f0e6ff",
+        "#f3f0f7"
+      ]
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Syncopate Bold",
+        "purpose": "Titulares monumentales, títulos de página y portadas. Fuente local /fonts/syncopate-bold.ttf."
+      },
+      "body": {
+        "displayName": "Space Grotesk",
+        "purpose": "Alias CSS Space; cuerpo, navegación y controles."
+      }
+    },
+    "monolith": {
+      "direction": "A aprobada",
+      "source": "src/Monolith.css",
+      "artwork": [
+        "/media/monolith-1800.jpg",
+        "/media/monolith-900.jpg"
+      ],
+      "layering": "Misma geometría en fondo y recorte frontal; texto inferior y acciones encima.",
+      "intentionalShapeOverrides": [
+        "Portadas e identidad: 0px",
+        "Botones hero: 2px"
+      ]
+    }
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Acción principal de contacto o navegación.",
+      "html": "<button class=\"button-primary\">Ver Portafolio</button>",
+      "css": ".button-primary{font:14px Space,sans-serif;min-height:52px;padding:14px 22px;border:0;border-radius:6px;background:#f3f0f7;color:#07060b;cursor:pointer;transition:background .2s,transform .2s}.button-primary:hover{background:#c6a2ff;transform:translateY(-2px)}.button-primary:focus-visible{outline:2px solid #c6a2ff;outline-offset:6px}@media(prefers-reduced-motion:reduce){.button-primary{transition:none}}"
+    }
+  ],
+  "narrative": {
+    "overview": "Dirección A aprobada: monolito cinematográfico original, titular monumental y composición editorial asimétrica. Negro, violeta y magenta contenido.",
+    "dos": [
+      "Do conservar datos reales, ES/EN y enlaces existentes.",
+      "Do mantener contraste, foco visible y movimiento reducido."
+    ],
+    "donts": [
+      "Don't añadir neón abundante, lluvia de código o permisos para decoración.",
+      "Don't presentar arte conceptual o portadas provisionales como capturas auténticas."
+    ]
+  }
+}

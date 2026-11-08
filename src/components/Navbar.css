@@ -1,134 +1,150 @@
-/* src/components/Navbar.css - MODO DARK LUXURY */
-
-/* Contenedor principal de la barra */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.2rem 2rem;
-  
-  /* Efecto Vidrio Oscuro */
-  background: rgba(0, 0, 0, 0.85); /* Negro casi opaco */
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  
-  /* Borde sutil abajo */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+.site-header {
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:var(--background);
+  border-bottom:1px solid var(--border)
 }
-
-/* Marca / Nombre a la izquierda */
-.navbar-brand a {
-  font-family: 'Outfit', sans-serif;
-  font-size: 1.3rem;
-  font-weight: 800;
-  text-decoration: none;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  
-  /* Texto Blanco Puro */
-  color: #ffffff;
-  transition: opacity 0.3s;
+.nav-shell {
+  width:min(var(--page-width),calc(100% - 112px));
+  height:90px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:32px
 }
-
-.navbar-brand a:hover {
-  opacity: 0.8;
-  text-shadow: 0 0 10px rgba(255,255,255,0.3);
+.wordmark {
+  font-size:30px;
+  font-weight:700;
+  letter-spacing:-.04em;
+  display:flex;
+  align-items:start
 }
-
-/* Enlaces a la derecha */
-.navbar-links {
-  display: flex;
-  gap: 2.5rem;
+.wordmark span {
+  font-size:12px;
+  margin:6px 0 0 5px;
+  color:var(--accent-light)
 }
-
-.navbar-links a {
-  color: #737373; /* Gris oscuro por defecto */
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 0.95rem;
-  position: relative;
-  transition: all 0.3s ease;
+.primary-navigation {
+  display:flex;
+  gap:30px
 }
-
-/* Efecto Hover (Blanco Brillante) */
-.navbar-links a:hover {
-  color: #ffffff; 
-  text-shadow: 0 0 8px rgba(255,255,255,0.4);
+.primary-navigation a {
+  display:flex;
+  align-items:center;
+  min-height:44px;
+  font-size:13px;
+  color:var(--muted);
+  position:relative
 }
-
-/* Animación de la línea inferior (Subrayado Blanco) */
-.navbar-links a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -4px;
-  left: 0;
-  background-color: #ffffff; /* Línea Blanca */
-  transition: width 0.3s ease-in-out;
-  border-radius: 2px;
+.primary-navigation a:hover,.primary-navigation a.active {
+  color:var(--text)
 }
-
-.navbar-links a:hover::after {
-  width: 100%;
+.primary-navigation a.active::after {
+  content:'';
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  height:2px;
+  background:var(--accent)
 }
-
-/* Ajuste para celulares (Móvil) */
-@media (max-width: 768px) {
-  .navbar {
-    padding: 1rem;
-    flex-direction: column;
-    gap: 1rem;
+.nav-tools {
+  display:flex;
+  align-items:center;
+  gap:24px
+}
+.language-button {
+  display:flex;
+  align-items:center;
+  gap:6px;
+  background:none;
+  border:0;
+  padding:12px 4px;
+  color:var(--muted);
+  font-size:12px;
+  min-height:44px
+}
+.language-button .selected {
+  color:var(--text);
+  font-weight:700
+}
+.nav-contact {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  border:1px solid #67616f;
+  border-radius:5px;
+  padding:12px 16px;
+  font-size:13px
+}
+.nav-contact:hover {
+  background:var(--surface)
+}
+.menu-button {
+  display:none;
+  align-items:center;
+  justify-content:center;
+  min-width:44px;
+  min-height:44px;
+  border:1px solid var(--border);
+  border-radius:5px;
+  background:none;
+  color:var(--text);
+  font-size:22px
+}
+@media(max-width:1000px) {
+  .nav-contact {
+    display:none
   }
-  
-  .navbar-links {
-    gap: 1.5rem;
-    font-size: 0.9rem;
+  .nav-shell {
+    gap:20px
   }
 }
-
-/* src/components/Navbar.css */
-
-/* ... tus estilos anteriores ... */
-
-.navbar-links {
-  display: flex;
-  align-items: center;
-  gap: 2rem; /* Espacio entre enlaces */
+@media(max-width:900px) {
+  .nav-shell {
+    width:calc(100% - 64px)
+  }
+  .primary-navigation {
+    gap:20px
+  }
 }
-
-/* El nuevo botón de idioma */
-.lang-btn {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #fff;
-  padding: 5px 12px;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 0.85rem;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  transition: all 0.3s ease;
-  font-family: 'Outfit', sans-serif;
-}
-
-.lang-btn:hover {
-  background: #ffffff;
-  color: #000000;
-  transform: scale(1.05);
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-}
-
-/* Ajuste móvil */
-@media (max-width: 768px) {
-  .navbar-links {
-    gap: 1rem;
+@media(max-width:700px) {
+  .nav-shell {
+    width:calc(100% - 40px);
+    height:76px
+  }
+  .wordmark {
+    font-size:28px
+  }
+  .nav-tools {
+    gap:16px
+  }
+  .menu-button {
+    display:flex
+  }
+  .primary-navigation {
+    display:none;
+    position:absolute;
+    top:76px;
+    left:0;
+    right:0;
+    padding:16px 20px 24px;
+    background:var(--background);
+    border-bottom:1px solid var(--border)
+  }
+  .primary-navigation.is-open {
+    display:flex;
+    flex-direction:column;
+    gap:4px
+  }
+  .primary-navigation a {
+    padding:8px;
+    font-size:17px
+  }
+  .primary-navigation a.active::after {
+    width:24px;
+    left:8px
   }
 }

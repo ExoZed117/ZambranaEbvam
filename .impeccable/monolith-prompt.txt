@@ -1,0 +1,8 @@
+Approved direction: A — Monolito tipográfico, approved by the user on 2026-11-08.
+Approved reference: C:/Users/zambr/.codex/generated_images/01a1b946-2410-7532-b054-10da9748dc32/exec-6481abb1-b88c-49a1-b24f-a714e220c203.png
+Method: built-in Imagegen, extracting a new clean plate from the approved composition. No reference characters, logos or third-party artwork copied.
+Plate: C:/Users/zambr/.codex/generated_images/01a1b946-2410-7532-b054-10da9748dc32/exec-0b1d67c3-bb0a-4294-aab4-296c2305486b.png
+Web assets: public/media/monolith-1800.jpg and monolith-900.jpg, JPEG quality 88. Responsive HTML typography is not baked into these images.
+
+Exact plate prompt:
+Produce the clean background art plate from this EXACT approved website composition. Remove ALL typography, letters, name, navigation, buttons, panels, border/corner marks, diagonal thin interface lines and captions. Inpaint those regions naturally. Preserve the original angular central titanium monolith, its exact perspective, shape, position, violet illuminated cavity, purple haze, dark architectural lower planes, lighting and near black negative space. Do not reimagine or change the sculpture. Its apex stays near x=61%, y=25%. This is the original scene without ANY UI or text. Landscape same aspect ratio. No new objects.
